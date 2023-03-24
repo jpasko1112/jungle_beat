@@ -4,4 +4,8 @@ class LinkedList
   def initialize
     @head = nil
   end
+
+  def apppend(value)
+    
+  end
 end
