@@ -1,6 +1,6 @@
 class LinkedList
-
-    attr_reader :head
+  attr_reader :head
+  
   def initialize
     @head = nil
   end
@@ -9,39 +9,34 @@ class LinkedList
     if @head.nil?
       @head = Node.new(data)
     else
-      current_node = @head
+      previous_node = @head
       new_node = Node.new(data)
-      while current_node.next_node != nil
-        current_node = current_node.next_node
+      while previous_node.next_node != nil
+        previous_node = previous_node.next_node
       end
-        current_node.next_node = new_node
+      previous_node.next_node = new_node
     end
+    data
   end
 
   def count
-    if @head.nil?
-      counter = 0
-    else
-      counter = 1
-      current_node = @head
-      while current_node.next_node != nil
-        current_node = current_node.next_node
-        counter += 1
-      end
+    counter = 0
+    current = head
+    until current.nil?
+      current = current.next_node
+      counter += 1
     end
     counter
   end
 
-  def to_string(data)
-    string = ""
-    current_node = @head
-    if @head.nil?
-      return string
-    else
-      while current_node.next != nil
-        string << current_node.data
-      end
-      string
+  def to_string
+    beats = []
+    current_node = head
+    while current_node != nil
+      beats << current_node.data
+      current_node = current_node.next_node
     end
+    # .join returns a string obj, seperated by given separator.
+    beats.join(" ")
   end
 end
