@@ -40,11 +40,21 @@ class LinkedList
     beats.join(" ")
   end
 
-  def prepend
+  def prepend(data)
     if @head.nil?
       @head = Node.new(data)
     else
-      next_node = nil
-      
+      oldhead = @head
+      @head = Node.new(data)
+      @head.next_node = oldhead
+    end
+  end
+
+  def insert(index, data)
+    current_node = @head
+    index.times do
+      current_node = current_node.next_node
+    end
+    current_node.next_node = Node.new(data)
   end
 end
