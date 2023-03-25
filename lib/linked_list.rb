@@ -39,4 +39,12 @@ class LinkedList
     # .join returns a string obj, seperated by given separator.
     beats.join(" ")
   end
+
+  def prepend
+    if @head.nil?
+      @head = Node.new(data)
+    else
+      next_node = nil
+      
+  end
 end

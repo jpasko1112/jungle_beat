@@ -42,7 +42,7 @@ RSpec.describe LinkedList do
     expect(list.head).to eq(nil)
 
     list.append("doop")
-
+    
     expect(list.head).not_to be_nil
     expect(list.head.next_node).to eq(nil)
 
@@ -51,5 +51,26 @@ RSpec.describe LinkedList do
     expect(list.head.next_node).not_to be_nil
     expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
+  end
+
+  # prepend will add nodes to the beginning of the list.
+  it "can prepend multiple nodes" do
+    list = LinkedList.new
+
+    list.append("plop")
+
+    expect(list.to_string).to eq("plop")
+
+    list.append("suu")
+
+    expect(list.to_string).to eq("plop suu")
+
+    list.prepend("dop")
+
+    expect(list.to_string).to eq("dop plop suu")
+
+    list.count
+
+    expect(list.count).to eq(3)
   end
 end
