@@ -51,7 +51,40 @@ class LinkedList
   end
 
   def insert(index, data)
+    current_node = @head
+    (index - 1).times do 
+      current_node = current_node.next_node
+    end
+    to_insert = Node.new(data)
+    to_insert.next_node = current_node.next_node
+    current_node.next_node = to_insert
+  end
 
+  # Find - takes two parameters (index, how many)
+  def find(index, count)
+    beats = []
+    current_node = @head
+    index.times do 
+      current_node = current_node.next_node
+    end
+    while current_node != nil && beats.length < count
+      beats << current_node.data
+      current_node = current_node.next_node
+    end
+      beats.join(" ")
+  end
+
+  # includes? gives back true or false whether the supplied value is in the list.
+  
+  def includes?(data)
+    current_node = @head
+      while current_node != nil
+        if current_node.data == (data)
+          return true
+        end
+          current_node = current_node.next_node
+        end
+      return false
   end
 
 end
