@@ -41,13 +41,10 @@ class LinkedList
   end
 
   def prepend(data)
-    if @head.nil?
-      @head = Node.new(data)
-    else
       oldhead = @head
       @head = Node.new(data)
       @head.next_node = oldhead
-    end
+    data
   end
 
   def insert(index, data)
@@ -75,16 +72,20 @@ class LinkedList
   end
 
   # includes? gives back true or false whether the supplied value is in the list.
-  
   def includes?(data)
-    current_node = @head
-      while current_node != nil
-        if current_node.data == (data)
-          return true
-        end
-          current_node = current_node.next_node
-        end
-      return false
+    to_string.include?(data)
+  end
+
+  def pop
+    unless @head.nil?
+      current_node = @head
+      until current_node.next_node.next_node.nil?
+        current_node = current_node.next_node
+      end
+      tail = current_node.next_node
+      current_node.next_node = nil
+      tail.data
+    end
   end
 
 end
