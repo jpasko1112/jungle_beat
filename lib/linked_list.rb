@@ -51,10 +51,7 @@ class LinkedList
   end
 
   def insert(index, data)
-    current_node = @head
-    index.times do
-      current_node = current_node.next_node
-    end
-    current_node.next_node = Node.new(data)
+
   end
+
 end
