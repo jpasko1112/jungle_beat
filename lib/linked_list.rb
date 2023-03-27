@@ -41,10 +41,10 @@ class LinkedList
   end
 
   def prepend(data)
-    oldhead = @head
-    @head = Node.new(data)
-    @head.next_node = oldhead
-    data
+      oldhead = @head
+      @head = Node.new(data)
+      @head.next_node = oldhead
+      data
   end
 
   def insert(index, data)
@@ -87,5 +87,4 @@ class LinkedList
       tail.data
     end
   end
-
 end
