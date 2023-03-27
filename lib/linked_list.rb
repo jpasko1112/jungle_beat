@@ -41,9 +41,9 @@ class LinkedList
   end
 
   def prepend(data)
-      oldhead = @head
-      @head = Node.new(data)
-      @head.next_node = oldhead
+    oldhead = @head
+    @head = Node.new(data)
+    @head.next_node = oldhead
     data
   end
 
