@@ -2,8 +2,9 @@ class JungleBeat
   attr_reader :list
   attr_accessor :list
 
-  def initialize
+  def initialize(data = " ")
     @list = LinkedList.new
+    @data = data
   end
 
   def append(data)
@@ -15,12 +16,11 @@ class JungleBeat
   end
 
   def count
-   self.list.count
+   list.count
   end
 
   def play
     beats = list.to_string
      `say -r 175 -v Boing #{beats}`
   end
-
 end

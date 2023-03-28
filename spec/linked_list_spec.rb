@@ -122,6 +122,4 @@ RSpec.describe LinkedList do
     expect(list.pop).to eq("shu")
     expect(list.to_string).to eq("deep woo shi")
   end
-
-
 end

@@ -22,6 +22,7 @@ RSpec.describe JungleBeat do
     expect(jb.list.head.data).to eq("deep")
     expect(jb.list.head.next_node.data).to eq("doo")
     expect(jb.append("woo hoo shu")).to eq("woo hoo shu")
+    
   end
 
   it "can count" do
@@ -39,7 +40,7 @@ RSpec.describe JungleBeat do
     jb = JungleBeat.new
 
     expect(jb.append("deep doo ditt woo hoo shu")).to eq("deep doo ditt woo hoo shu")
-
+    
     jb.play
   end
 end
